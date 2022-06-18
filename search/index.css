@@ -22,7 +22,7 @@ header a:hover {
 }
 
 .container {
-  margin-top: 9em;
+  margin-top: 10em;
   text-align: center;
 }
 
@@ -32,7 +32,6 @@ header a:hover {
 
 .submit-buttons {
   margin-top: 2em;
-  padding: 0 2em;
   display: flex;
   justify-content: center;
 }
@@ -42,9 +41,9 @@ header a:hover {
 }
 
 input[type=submit] {
-  background-color: rgb(243, 243, 243);
+  background-color: rgb(247, 247, 247);
   border: thin solid rgba(206, 206, 206, 0);
-  padding: 0.9em;
+  padding: 0.8em 1em;
   font-size: 0.9em;
 }
 
@@ -55,16 +54,27 @@ input[type=submit]:hover {
   box-shadow: 0px 1px rgba(168, 168, 168, 0.8);
 }
 
-input[type=text] {
-  width: 90%;
+#text-field {
+  display: flex;
+  justify-content: center;
+  border: thin solid rgba(168, 168, 168, 0.3);
   max-width: 550px;
-  border: thin solid rgba(206, 206, 206, 0.8);
   border-radius: 25px;
-  padding: 1em;
+  padding: 0.7em;
+  margin: auto;
+  margin: 10px;
+}
+#text-field input[type=text] {
+  width: 100%;
+  outline: none;
+  border: none;
   padding-left: 1em;
 }
+#text-field svg {
+  width: 22px;
+  opacity: 40%;
+}
 
-input[type=text]:hover, input[type=text]:focus {
-  outline: none;
-  box-shadow: 0 0 5px rgba(168, 168, 168, 0.5);
+#text-field:hover, #text-field:focus {
+  box-shadow: 0 0 10px rgba(168, 168, 168, 0.5);
 }/*# sourceMappingURL=index.css.map */
