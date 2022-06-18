@@ -5,6 +5,16 @@ body {
 header {
   padding: 1em;
 }
+header #header-logo {
+  float: left;
+}
+header #header-logo a {
+  margin: 0;
+}
+header #header-logo img {
+  margin: 0;
+  width: 70px;
+}
 header nav {
   float: right;
   margin-right: 1em;

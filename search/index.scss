@@ -4,10 +4,23 @@ body {
 
 header {
     padding: 1em;
+
+    #header-logo {
+        float: left;
+        a {
+            margin: 0;
+        }
+        img {
+            margin: 0;
+            width: 70px;
+        }
+    }
+
     nav {
         float: right;
         margin-right: 1em;
     }
+
     a {
         margin-left: 1em;
         font-size: 0.8em;
