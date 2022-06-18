@@ -64,7 +64,6 @@ input[type=submit]:hover {
     border-radius: 25px;
     padding: 0.7em;
     margin: auto;
-    margin: 10px;
 
     input[type=text] {
         width: 100%;
@@ -79,6 +78,18 @@ input[type=submit]:hover {
     }
 }
 
-#text-field:hover, #text-field:focus {
+#text-field:hover, #text-field:focus-within {
     box-shadow: 0 0 10px rgba(168, 168, 168, 0.5);
+}
+
+#main-logo {
+    max-width: 272px;
+    position: relative;
+    margin: auto;
+    span {
+        position: absolute;
+        color: rgb(66, 133, 244);
+        left: 215px;
+        bottom: 5px;
+    }
 }
