@@ -1,0 +1,73 @@
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
+header {
+    padding: 1em;
+    nav {
+        float: right;
+        margin-right: 1em;
+    }
+    a {
+        margin-left: 1em;
+        font-size: 0.8em;
+        text-decoration: none;
+        color: inherit;
+        text-align: right;
+    }
+
+    a:hover {
+        cursor: pointer;
+        text-decoration: underline;
+    }
+}
+
+.container {
+    margin-top: 9em;
+    text-align: center;
+}
+
+.forms {
+    margin-top: 1.5em;
+}
+
+.submit-buttons {
+    margin-top: 2em;
+    padding: 0 2em;
+    display: flex;
+    justify-content: center;
+}
+
+.glucky {
+    margin-left: 0.8em;
+}
+
+
+input[type=submit] {
+    background-color: rgb(243, 243, 243);
+    border: thin solid rgba(206, 206, 206, 0);
+    padding: 0.9em;
+    font-size: 0.9em;
+}
+
+input[type=submit]:hover {
+    cursor: pointer;
+    border-radius: 5px;
+    border: thin solid rgba(206, 206, 206, 0.8);
+    box-shadow: 0px 1px rgba(168, 168, 168, 0.8);
+}
+
+input[type=text] {
+    width: 90%;
+    max-width: 550px;
+    border: thin solid rgba(206, 206, 206, 0.8);
+    border-radius: 25px;
+    padding: 1em;
+    padding-left: 1em;
+}
+
+input[type=text]:hover, input[type=text]:focus {
+    outline: none;
+    box-shadow: 0 0 5px rgba(168, 168, 168, 0.5);
+}
+
