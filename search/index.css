@@ -32,8 +32,17 @@ header a:hover {
 }
 
 .container {
-  margin-top: 10em;
+  margin-top: 10rem;
   text-align: center;
+}
+.container #advtext {
+  margin-left: 2rem;
+  font-size: 1.3rem;
+  color: rgb(219, 68, 55);
+}
+.container hr {
+  margin: 2rem 0;
+  opacity: 0.3;
 }
 
 .forms {
@@ -98,4 +107,50 @@ input[type=submit]:hover {
   color: rgb(66, 133, 244);
   left: 215px;
   bottom: 5px;
+}
+
+#advforms {
+  margin: 2rem;
+  text-align: left;
+  max-width: 750px;
+  margin-bottom: 4em;
+}
+
+.subfield {
+  display: flex;
+  text-align: left;
+  justify-content: space-between;
+}
+.subfield p {
+  margin: 0;
+  padding: 0;
+  margin: 1em 0;
+  font-size: 0.8rem;
+  width: 20%;
+  min-width: 165px;
+}
+.subfield input[type=text] {
+  height: 25px;
+  width: 75%;
+  align-self: center;
+  border: thin solid rgba(168, 168, 168, 0.7);
+  padding-left: 10px;
+}
+.subfield input[type=text]:focus {
+  outline: 0;
+  border: thin solid rgba(66, 133, 244, 0.8);
+  box-shadow: inset 0 1px 3px rgba(168, 168, 168, 0.5);
+}
+
+#advsearch {
+  float: right;
+  margin-top: 1em;
+  background-color: rgb(66, 133, 244);
+  color: white;
+  font-size: 0.7rem;
+  border-radius: 2px;
+}
+
+#advsearch:hover {
+  border: 1px solid rgb(25, 82, 175);
 }/*# sourceMappingURL=index.css.map */
