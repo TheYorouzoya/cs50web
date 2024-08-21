@@ -1,0 +1,74 @@
+header {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1em;
+}
+
+.email {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 3fr) minmax(0, 1fr);
+  margin-bottom: 5px;
+  padding: 8px;
+  border: thin solid;
+  border-radius: 5px;
+}
+.email .sender {
+  grid-column-start: 1;
+  grid-column-end: 1;
+  font-weight: bold;
+}
+.email .subject {
+  grid-column-start: 2;
+  grid-column-end: 6;
+  text-align: left;
+  overflow: auto;
+}
+.email .timestamp {
+  grid-column-start: 6;
+  grid-column-end: 7;
+  text-align: right;
+  font-size: 0.95em;
+  opacity: 0.8;
+}
+
+.email:hover {
+  cursor: pointer;
+  box-shadow: 0 0 10px 2px rgb(177, 177, 177);
+}
+
+.true {
+  background-color: rgb(218, 228, 238);
+}
+
+.false {
+  background-color: white;
+}
+
+#mailbox-heading {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+#mail .btn-container button {
+  margin-top: 10px;
+  margin-right: 5px;
+}
+#mail .subject {
+  margin-top: 10px;
+  font-size: 1.5em;
+  font-weight: bold;
+}
+#mail .sender {
+  margin-top: 10px;
+}
+#mail .timestamp {
+  opacity: 0.7;
+}
+
+#compose-view {
+  margin-top: 10px;
+}
+
+textarea, input {
+  margin-bottom: 10px;
+}/*# sourceMappingURL=styles.css.map */
