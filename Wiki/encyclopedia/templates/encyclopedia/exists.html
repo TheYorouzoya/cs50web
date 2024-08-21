@@ -1,0 +1,13 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    Article Already Exists
+{% endblock %}
+
+{% block body %}
+    <div style="margin-top: 2em">
+        <h3>Error: Article Already Exists</h3>
+        <p>Article titled "<b><a href="wiki/{{ title }}">{{ title }}</a></b>" already exists.<br>
+            You can click the link above to read/edit the existing article.</p>
+    </div>
+{% endblock %}
