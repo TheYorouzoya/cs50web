@@ -1,0 +1,30 @@
+{% extends "auctions/layout.html" %}
+
+{% block title %}
+    Add New Listing
+{% endblock %}
+
+{% block body %}
+    <div class="form-container">
+        <div class="list-container">
+            <h2>Add new listing</h2>
+            <div class="listing-form">
+                <form action="{% url 'add' %}" method="post">
+                    {% csrf_token %}
+                    {% for field in form %}
+                        <div class="mb-3">
+                            <label class="form-label">{{ field.label }}:</label>    
+                            <div class="controls">
+                                {{ field }}
+                                {% if field.help_text %}
+                                    <p class="help-inline text-muted"><small>{{ field.help_text }}</small></p>
+                                {% endif %}
+                            </div>
+                        </div>
+                    {% endfor %}
+                    <input type="submit" value="Add Listing" class="btn btn-primary" style="padding: 0.5em">
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}

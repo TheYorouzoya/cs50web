@@ -1,0 +1,44 @@
+{% extends "auctions/layout.html" %}
+
+{% block title %}
+    {{ user.username }}'s Watchlist
+{% endblock %}
+
+{% block body %}
+    <div id="title" style="margin-top: 1em;">
+        <h2>YOUR WATCHLIST:</h2>
+    </div>
+    <div class="card-container">
+        <div class="row row-cols-lg-5 row-cols-md-4 row-cols-sm-3 g-2">
+            {% for item in watchlist %}
+                <div class="col">
+                    <div class="card h-100">
+                        {% if item.listing.image_link %}
+                        <div class="image-container">
+                            <a href="{% url 'listing' item.listing.id %}">
+                                <img src="{{ item.listing.image_link }}" alt="{{ item.listing.image_alt_text }}" class="card-img-top">
+                            </a>
+                        </div>
+                        {% else %}
+                        <div class="no-image">
+                            <span>No image available for this listing.</span>
+                        </div>
+                        {% endif %}
+
+                        <div class="card-body">
+                            <a href="{% url 'listing' item.listing.id %}"><h5 class="card-title">{{ item.listing.title }}</h5></a>
+                            <p class="category">{{ item.listing.category }}</p>
+                            <p class="text-muted description">{{ item.listing.description }}</p>
+                        </div>
+
+                        <div class="card-footer">
+                            <p class="price"><b>Price:</b> ${{ item.listing.price }}</p>
+                        </div>
+                    </div>
+                </div>
+            {% empty %}
+                <p>You have no items in your watchlist.</p>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

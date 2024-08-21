@@ -1,0 +1,158 @@
+{% extends "auctions/layout.html" %}
+
+{% block title %}
+    Listing - {{ listing.title }}
+{% endblock %}
+
+{% block body %}
+
+    <!-- Display error messages here -->
+    {% if messages %}
+        {% for message in messages %}
+            {% if message.tags == 'error' %}
+                <div class="alert alert-danger" role="alert">
+            {% else %}
+                <div class="alert alert-success" role="alert">
+            {% endif %}
+            {{ message }}
+        </div>
+        {% endfor %}
+    {% endif %}
+
+    <div class="listing-box row">
+        <div class="col">
+            <div id="image-box">
+                <!-- If there is no image with the listing -->
+                {% if listing.image_link %}
+                    <img src="{{ listing.image_link }}" alt="{{ listing.image_alt_text }}">
+                {% else %}
+                    <p>No image available for this listing.</p>
+                {% endif %}
+            </div>
+        </div>
+        <div class="col">
+            <div class="description-box">
+                <div id="title">
+                    Listing: {{ listing.title }}
+                </div>
+    
+                <div class="category">
+                    Category: {{ listing.category }}
+                </div>
+                
+                <div class="description">
+                    {{ listing.description }}
+                </div>
+
+                <div class="desc-footer">
+                    <div class="author">
+                        Posted By: <span>{{ listing.author }}</span>
+                    </div>
+                    <div class="text-muted">
+                        Added on: {{ listing.creation_date }}
+
+                    </div>
+                </div>
+                <!-- Watchlist button -->
+                {% if user.is_authenticated %}
+                <div id="watch">
+                    <form action="{% url 'watchlist' %}" method="post">
+                        {% csrf_token %}
+                        <input type="hidden" name="listing_id" value="{{ listing.id }}">
+                        {% for list in watchlist %}
+                            <button type="submit" class="btn btn-sm btn-outline-secondary" name="removewatch">Remove From Watchlist</button>
+                        {% empty %}
+                            <button type="submit" class="btn btn-sm btn-outline-success" name="addwatch">Add To Watchlist</button>
+                        {% endfor %}
+                    </form>
+                </div>
+                {% endif %}
+                <hr>
+
+                <!-- If the listing is active -->
+                {% if listing.active_status %}
+                    <div id="current-bid">
+                        {% if bidcount == 0 %}
+                            Starting Bid: <span>${{ listing.price }}</span>
+                        {% else %}
+                            Current Bid: <span>${{ listing.price }}</span>
+                        {% endif %}
+                    </div>
+                    {{ bidcount }} bid(s) so far.
+                    {% if user.is_authenticated and bids.0.bidder == request.user and not listing.author == request.user %}
+                        Your bid is the current bid.
+                    {% endif %}
+
+                    <!-- Bid form -->
+                    {% if user.is_authenticated %}
+                        <form action="{% url 'bid' %}" method="post">
+                            {% csrf_token %}
+                            <input type="hidden" name="listing_id" value="{{ listing.id }}">
+                            {% if bidcount == 0 %}
+                                <input type="hidden" name="starting_bid">
+                            {% endif %}
+                            <!-- If the user is not the author -->
+                            {% if not author %}
+                                <input type="number" name="bid" step="0.01">
+                                <button type="submit" class="btn btn-success" name="add_bid">Place Bid</button>
+                            {% else %}
+                                <button type="submit" class="btn btn-danger" name="close_auc">Close Auction</button>
+                            {% endif %}
+                        </form>
+                    {% else %}
+                        <a href="{% url 'login' %}">Login</a> to place a bid on this item.
+                    {% endif %}
+
+                {% else %}
+                    <p>This listing is no longer active. The auction is over.</p>
+                    {% if bids.0.bidder == request.user %}
+                        <h5><b><span style="color: green">Congratulations!</span> You won the auction with a bid of ${{ bids.0.amount }}!</b></h5>
+                    {% else %}
+                        {% if bidcount == 0 %}
+                            <p><b>Auction closed with no bids.</b></p>
+                        {% else %}
+                            <p><b>{{ bids.0.bidder }} won the auction with ${{ bids.0.amount }}!</b></p>
+                        {% endif %}
+                    {% endif %}
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    <hr>
+    <div class="comment-box">
+        <div class="com-heading">
+            Comments
+        </div>
+        {% for comment in comments %}
+            <div class="comment">
+                <div class="commenter">
+                    <span>{{ comment.commenter }}</span> said:
+                </div>
+                <div class="comment-date text-muted" style="font-size: 0.85em">
+                    {{ comment.creation_date }}
+                </div>
+                <div class="comment-content">
+                    {{ comment.content }}
+                </div>
+            </div>
+            <hr>
+        {% empty %}
+            No comments on this item yet. Be the first!
+            <hr>
+        {% endfor %}
+    </div>
+    <!-- Comment form -->
+    {% if user.is_authenticated %}
+        <div class="comment-form">
+            Add a comment:
+            <form action="{% url 'comment' %}" method="post">
+                {% csrf_token %}
+                {{ commentform }}
+                <input type="hidden" name="listing_id" value="{{ listing.id }}">
+                <button type="submit" class="btn btn-primary" name="add_comment">Add Comment</button>
+            </form>
+        </div>
+    {% else %}
+        <a href="{% url 'login' %}">Login</a> to add a comment.
+    {% endif %}
+{% endblock %}

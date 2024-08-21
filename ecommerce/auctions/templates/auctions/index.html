@@ -1,0 +1,38 @@
+{% extends "auctions/layout.html" %}
+
+{% block body %}
+    <div id="hero-img"></div>
+    <div id="heading">
+        <h2><span>Active</span> Listings</h2>
+    </div>
+    <div class="card-container">
+        <div class="row row-cols-lg-5 row-cols-md-4 row-cols-sm-3 g-2">
+            {% for listing in listings %}
+            <div class="col">
+                <div class="card h-100">
+                    {% if listing.image_link %}
+                    <div class="image-container">
+                        <a href="{% url 'listing' listing.id %}">
+                            <img src="{{ listing.image_link }}" alt="{{ listing.image_alt_text }}" class="card-img-top">
+                        </a>
+                    </div>
+                    {% else %}
+                    <div class="no-image">
+                        <span>No image available for this listing.</span>
+                    </div>
+                    {% endif %}
+                   
+                    <div class="card-body">
+                        <a href="{% url 'listing' listing.id %}"><h5 class="card-title">{{ listing.title }}</h5></a>
+                        <p class="category">{{ listing.category }}</p>
+                        <p class="text-muted description">{{ listing.description }}</p>
+                    </div>
+                    <div class="card-footer">
+                        <p class="price"><b>Price:</b> ${{ listing.price }}</p>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}
