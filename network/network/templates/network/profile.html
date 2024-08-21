@@ -1,0 +1,49 @@
+{% extends "network/layout.html" %}
+{% load static %}
+
+{% block title %}
+    {% if profile %}
+        {{ profile.username }} - User Profile
+    {% else %}
+        User Profile
+    {% endif %}
+{% endblock %}
+
+{% block body %}
+    <div class="profile-header">
+        <div class="profile-title">
+            {{ profile.username }}
+        </div>
+        <div class="profile-stats">
+            <div id="followers">
+                followers {{ profile.followers }}
+            </div>
+            <div id="following">
+                following {{ profile.following }}
+            </div>
+            {% if user.is_authenticated %}
+            {% if profile.username != request.user.username %}
+            <div>
+                {% if is_following %}
+                <button class="btn btn-primary btn-info" id="follow-btn" data-profile="{{ profile.username }}"><i class="bi bi-check-lg"></i> Following</button>
+                {% else %}
+                <button class="btn btn-primary btn-info" id="follow-btn" data-profile="{{ profile.username }}">Follow</button>
+                {% endif %}
+            </div>
+            {% endif %}
+            {% endif %}
+        </div>
+    </div>
+
+    {% if page_error %}
+        <div id="error-message" role="alert" class="alert alert-danger">
+            {{ page_error }}
+        </div>
+    {% else %}
+            <div class="page-heading">
+                <h2>Posts:</h2>
+            </div>
+        {% include "network/post_layout.html" %}
+        {% csrf_token %}
+    {% endif %}
+{% endblock %}

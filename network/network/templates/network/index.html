@@ -1,0 +1,25 @@
+{% extends "network/layout.html" %}
+{% load static %}
+
+{% block body %}
+    <div class="page-heading">
+        <h3>All Posts</h3>
+    </div>
+    <div class="form-container">
+        <form id="post-form">
+            {% csrf_token %}
+            <textarea class="form-control" id="post-field" cols="50" rows="3" placeholder="Say something..."></textarea>
+            <div class="add-btn">
+                <input id="add-post" type="submit" value="Add Post" class="btn btn-primary">
+            </div>
+        </form>
+    </div>
+    {% if page_error %}
+    <div id="error-message" role="alert" class="alert alert-danger">
+        {{ page_error }}
+    </div>
+    {% else %}
+        {% include "network/post_layout.html" %}
+        {% csrf_token %}
+    {% endif %}
+{% endblock %}

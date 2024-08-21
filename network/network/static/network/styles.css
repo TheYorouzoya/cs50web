@@ -1,0 +1,301 @@
+@import url("https://fonts.googleapis.com/css2?family=Russo+One&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,700;1,100;1,700&display=swap");
+@-webkit-keyframes slide {
+  0% {
+    opacity: 0;
+    line-height: 0;
+  }
+  100% {
+    opacity: 1;
+    line-height: inherit;
+  }
+}
+@keyframes slide {
+  0% {
+    opacity: 0;
+    line-height: 0;
+  }
+  100% {
+    opacity: 1;
+    line-height: inherit;
+  }
+}
+.animate {
+  -webkit-animation: slide 500ms ease-out;
+          animation: slide 500ms ease-out;
+}
+
+body {
+  background-color: rgb(25, 27, 32);
+  color: white;
+}
+body a {
+  color: white;
+  text-decoration: none;
+}
+body a:hover {
+  color: rgb(55, 163, 230);
+}
+
+.bi-heart:hover, .bi-heart-fill:hover {
+  cursor: pointer;
+}
+
+#nav-container {
+  max-width: 300px;
+}
+#nav-container .navbar {
+  position: fixed;
+  left: 0;
+  top: 0;
+  margin-left: 16vw;
+  margin-top: 1em;
+  margin-right: 1em;
+}
+#nav-container .navbar .nav-link {
+  color: white;
+  font-size: 1.3rem;
+}
+#nav-container .navbar .navbar-brand {
+  font-family: "Russo One", sans-serif;
+  font-size: 2rem;
+  color: rgb(55, 163, 230);
+}
+#nav-container .navbar .nav-item {
+  display: inline-block;
+  font-family: "Poppins", sans-serif;
+  font-weight: 300;
+}
+#nav-container .navbar .nav-item:hover {
+  cursor: pointer;
+  background-color: rgb(47, 141, 199);
+}
+
+.page-body {
+  margin-left: 27vw;
+  margin-right: 20vw;
+  border-left: thin solid white;
+  border-right: thin solid white;
+  border-color: rgba(255, 255, 255, 0.5);
+  min-height: 100vh;
+}
+.page-body .page-heading {
+  font-family: "Russo One", sans-serif;
+  padding-top: 2em;
+  padding-left: 20px;
+  margin-bottom: 1.5em;
+}
+.page-body .form-container {
+  padding-bottom: 0.5em;
+  margin: 0 20px;
+}
+.page-body .form-container #post-form #post-field {
+  background-color: rgb(56, 61, 63);
+  color: white;
+}
+.page-body .form-container #post-form .add-btn {
+  margin-top: 0.75em;
+  text-align: right;
+}
+.page-body .form-container #post-form .add-btn .btn {
+  background-color: rgb(55, 163, 230);
+}
+
+#posts_container hr {
+  padding: 0;
+  margin: 0;
+}
+#posts_container .post {
+  padding: 15px 20px;
+}
+#posts_container .post .post-header {
+  display: flex;
+  align-items: flex-end;
+}
+#posts_container .post .post-header .author {
+  font-size: 1.2em;
+  font-weight: 700;
+}
+#posts_container .post .post-header .author a {
+  color: rgb(55, 163, 230);
+}
+#posts_container .post .post-header .timestamp {
+  font-size: 1em;
+  font-weight: 100;
+  margin-left: 1em;
+  opacity: 0.3;
+}
+#posts_container .post .content {
+  margin-top: 0.3em;
+}
+#posts_container .post .post-footer {
+  display: flex;
+  align-items: flex-end;
+  margin-top: 1em;
+  opacity: 0.5;
+}
+#posts_container .post .post-footer .comments, #posts_container .post .post-footer .edit-btn {
+  margin-left: 4em;
+}
+#posts_container .post .form-control {
+  background-color: rgb(56, 61, 63);
+  color: white;
+}
+#posts_container .post .btn {
+  margin-top: 0.75em;
+  text-align: right;
+  background-color: rgb(55, 163, 230);
+  color: white;
+}
+#posts_container .post .edit-btn:hover {
+  color: rgb(55, 230, 128);
+  cursor: pointer;
+}
+#posts_container .post .bi-heart:hover {
+  color: rgb(255, 0, 140);
+}
+#posts_container .post .bi-heart-fill {
+  color: rgb(255, 0, 140);
+  text-shadow: 0 0 10px rgb(255, 0, 140);
+}
+#posts_container .post:hover {
+  background-color: rgb(43, 50, 56);
+}
+#posts_container #page-buttons {
+  padding: 1em;
+  display: flex;
+  justify-content: space-between;
+}
+
+.profile-header {
+  margin: 0;
+  padding-top: 4rem;
+  padding-left: 20px;
+  background-color: rgb(47, 141, 199);
+}
+.profile-header .profile-title {
+  font-family: "Russo One", sans-serif;
+  font-size: 4em;
+  text-shadow: 5px 5px black;
+}
+.profile-header .profile-stats {
+  display: flex;
+  align-items: center;
+  padding-bottom: 15px;
+}
+.profile-header #followers, .profile-header #following {
+  background-color: white;
+  color: rgb(47, 141, 199);
+  border-radius: 8px;
+  padding: 0 7px;
+}
+.profile-header #following {
+  margin-left: 10px;
+}
+
+#follow-btn {
+  margin-left: 10px;
+  padding: 0 7px;
+  border: thin solid white;
+  border-radius: 8px;
+  background-color: rgb(47, 141, 199);
+  color: white;
+}
+
+.login-form, .register-form {
+  max-width: 300px;
+  margin: auto;
+  padding: 1em;
+  text-align: center;
+}
+.login-form h2, .register-form h2 {
+  font-family: "Russo One", sans-serif;
+}
+.login-form .form-control, .register-form .form-control {
+  background-color: rgb(56, 61, 63);
+  color: white;
+  margin-bottom: 1em;
+}
+
+#main-post .post {
+  padding: 15px 20px;
+  padding-top: 1.7em;
+}
+#main-post .post .post-header .author {
+  font-size: 1.7em;
+  font-weight: 700;
+}
+#main-post .post .post-header .author a {
+  color: rgb(55, 163, 230);
+}
+#main-post .post .post-header .timestamp {
+  font-size: 1em;
+  font-weight: 100;
+  opacity: 0.3;
+}
+#main-post .post .content {
+  margin-top: 0.3em;
+}
+#main-post .post .post-footer {
+  display: flex;
+  align-items: flex-end;
+  margin-top: 1em;
+  opacity: 0.5;
+}
+#main-post .post .post-footer .comments, #main-post .post .post-footer .edit-btn {
+  margin-left: 4em;
+}
+#main-post .post .form-control {
+  background-color: rgb(56, 61, 63);
+  color: white;
+}
+#main-post .post .btn {
+  margin-top: 0.75em;
+  text-align: right;
+  background-color: rgb(55, 163, 230);
+  color: white;
+}
+#main-post .post .edit-btn:hover {
+  color: rgb(55, 230, 128);
+  cursor: pointer;
+}
+#main-post .post .bi-heart:hover {
+  color: rgb(255, 0, 140);
+}
+#main-post .post .bi-heart-fill {
+  color: rgb(255, 0, 140);
+  text-shadow: 0 0 10px rgb(255, 0, 140);
+}
+
+.comments-container .comment-heading {
+  padding: 0px 20px;
+}
+.comments-container .comment-heading h3 {
+  font-family: "Russo One", sans-serif;
+}
+.comments-container .form-container textarea {
+  background-color: rgb(56, 61, 63);
+  color: white;
+}
+.comments-container .form-container input {
+  margin-top: 1em;
+  background-color: rgb(55, 163, 230);
+}
+.comments-container .comment {
+  padding: 15px 20px;
+}
+.comments-container .comment .comment-author {
+  font-size: 1.2em;
+  font-weight: 700;
+}
+.comments-container .comment .comment-author a {
+  color: rgb(55, 163, 230);
+}
+.comments-container .comment .timestamp {
+  font-size: 0.85em;
+  font-weight: 100;
+  opacity: 0.3;
+}
+.comments-container .comment .comment-content {
+  padding-top: 5px;
+}/*# sourceMappingURL=styles.css.map */

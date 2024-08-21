@@ -1,0 +1,19 @@
+{% extends "network/layout.html" %}
+{% load static %}
+
+{% block title %}
+    Following    
+{% endblock %}
+
+{% block body %}
+{% if page_error %}
+    <div id="error-message" role="alert" class="alert alert-danger">
+        {{ page_error }}
+    </div>
+{% else %}
+    <div class="page-heading">
+        <h3>Posts from people you follow:</h3></div>
+    {% include "network/post_layout.html" %}
+    {% csrf_token %}
+{% endif %}
+{% endblock %}

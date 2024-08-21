@@ -1,0 +1,319 @@
+@import url('https://fonts.googleapis.com/css2?family=Russo+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,700;1,100;1,700&display=swap');
+
+
+
+@keyframes slide {
+    0% {
+        opacity: 0;
+        line-height: 0;
+    }
+    100% {
+        opacity: 1;
+        line-height: inherit;
+    }
+}
+
+.animate {
+    animation: slide 500ms ease-out;
+}
+
+body {
+    background-color: rgb(25, 27, 32);
+    color: white;
+
+    a {
+        color: white;
+        text-decoration: none;
+    }
+    a:hover {
+        color:rgb(55, 163, 230);
+    }
+}
+
+.bi-heart:hover, .bi-heart-fill:hover {
+    cursor: pointer;
+}
+
+#nav-container {
+    max-width: 300px;
+    .navbar {
+        position: fixed;
+        left: 0;
+        top: 0;
+        margin-left: 16vw;
+        margin-top: 1em;
+        margin-right: 1em;
+
+        .nav-link {
+            color: white;
+            font-size: 1.3rem;
+        }
+        .navbar-brand{
+            font-family: 'Russo One', sans-serif;
+            font-size: 2rem;
+            color: rgb(55, 163, 230);
+        }
+        .nav-item {
+
+            display: inline-block;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 300;
+        }
+        .nav-item:hover {
+            cursor: pointer;
+            background-color:rgb(47, 141, 199);
+        }
+    }
+}
+
+.page-body {
+    margin-left: 27vw;
+    margin-right: 20vw;
+    border-left: thin solid white;
+    border-right: thin solid white;
+    border-color: rgba(255, 255, 255, 0.5);
+    min-height: 100vh;
+    
+    .page-heading {
+        font-family: 'Russo One', sans-serif;
+        padding-top: 2em;
+        padding-left: 20px;
+        margin-bottom: 1.5em;
+    }
+    .form-container {
+        padding-bottom: 0.5em;
+        margin: 0 20px;
+        #post-form {
+            #post-field {
+                background-color: rgb(56, 61, 63);
+                color: white;
+            }
+    
+            .add-btn {
+                margin-top: 0.75em;
+                text-align: right;
+                .btn {
+                    background-color: rgb(55, 163, 230);
+                }
+            }
+        }
+    }
+}
+
+#posts_container {
+    hr {
+        padding: 0;
+        margin: 0;
+    }
+    .post{
+        padding: 15px 20px;
+        .post-header {
+            display: flex;
+            align-items: flex-end;
+            .author {
+                font-size: 1.2em;
+                font-weight: 700;
+                a {
+                color:rgb(55, 163, 230);
+                }
+            }
+            .timestamp {
+                font-size: 1em;
+                font-weight: 100;
+                margin-left: 1em;
+                opacity: 0.3;
+            }
+        }
+
+        .content {
+            margin-top: 0.3em;
+        }
+
+        .post-footer {
+            display: flex;
+            align-items: flex-end;
+            margin-top: 1em;
+            opacity: 0.5;
+            .comments, .edit-btn {
+                margin-left: 4em;
+            }
+        }
+        .form-control {
+            background-color: rgb(56, 61, 63);
+            color: white;
+        }
+        .btn {
+            margin-top: 0.75em;
+            text-align: right;
+            background-color:rgb(55, 163, 230);
+            color: white;
+        }
+        .edit-btn:hover {
+            color:rgb(55, 230, 128);
+            cursor: pointer;
+        }
+        .bi-heart:hover {
+            color: rgb(255, 0, 140);
+        }
+        .bi-heart-fill {
+            color: rgb(255, 0, 140);
+            text-shadow: 0 0 10px rgb(255, 0, 140);
+        }
+    }
+    .post:hover {
+        background-color: rgb(43, 50, 56);
+    }
+    #page-buttons {
+        padding: 1em;
+        display: flex;
+        justify-content: space-between;
+    }
+}
+
+.profile-header {
+    margin: 0;
+    padding-top: 4rem;
+    padding-left: 20px;
+    background-color:rgb(47, 141, 199);
+
+    .profile-title {
+        font-family: 'Russo One', sans-serif;
+        font-size: 4em;
+        text-shadow: 5px 5px black;
+    }
+
+    .profile-stats {
+        display: flex;
+        align-items:center;
+        padding-bottom: 15px;
+    }
+
+    #followers, #following {
+        background-color: white;
+        color:rgb(47, 141, 199);
+        border-radius: 8px;
+        padding: 0 7px;
+    }
+    #following {
+        margin-left: 10px;
+    }
+}
+
+#follow-btn {
+    margin-left: 10px;
+    padding: 0 7px;
+    border: thin solid white;
+    border-radius: 8px;
+    background-color:rgb(47, 141, 199);
+    color: white;
+    
+}
+
+.login-form, .register-form {
+    max-width: 300px;
+    margin: auto;
+    padding: 1em;
+    text-align: center;
+    h2 {
+        font-family: 'Russo One', sans-serif;
+    }
+    .form-control {
+        background-color: rgb(56, 61, 63);
+        color: white;
+        margin-bottom: 1em;
+    }
+}
+
+#main-post {
+    .post{
+        padding: 15px 20px;
+        padding-top: 1.7em;
+        .post-header {
+            .author {
+                font-size: 1.7em;
+                font-weight: 700;
+                a {
+                color:rgb(55, 163, 230);
+                }
+            }
+            .timestamp {
+                font-size: 1em;
+                font-weight: 100;
+                opacity: 0.3;
+            }
+        }
+
+        .content {
+            margin-top: 0.3em;
+        }
+
+        .post-footer {
+            display: flex;
+            align-items: flex-end;
+            margin-top: 1em;
+            opacity: 0.5;
+            .comments, .edit-btn {
+                margin-left: 4em;
+            }
+        }
+        .form-control {
+            background-color: rgb(56, 61, 63);
+            color: white;
+        }
+        .btn {
+            margin-top: 0.75em;
+            text-align: right;
+            background-color:rgb(55, 163, 230);
+            color: white;
+        }
+        .edit-btn:hover {
+            color:rgb(55, 230, 128);
+            cursor: pointer;
+        }
+        .bi-heart:hover {
+            color: rgb(255, 0, 140);
+        }
+        .bi-heart-fill {
+            color: rgb(255, 0, 140);
+            text-shadow: 0 0 10px rgb(255, 0, 140);
+        }
+    }
+}
+
+.comments-container {
+    .comment-heading {
+        padding: 0px 20px;
+        h3 {
+            font-family: 'Russo One', sans-serif;
+        }
+    }
+    .form-container {
+        textarea {
+            background-color:rgb(56, 61, 63);
+            color: white;
+        }
+        input {
+            margin-top: 1em;
+            background-color:rgb(55, 163, 230);
+        }
+    }
+    .comment{
+        padding: 15px 20px;
+        .comment-author {
+            font-size: 1.2em;
+            font-weight: 700;
+            a {
+                color:rgb(55, 163, 230);
+            }
+        }
+        .timestamp {
+            font-size: 0.85em;
+            font-weight: 100;
+            opacity: 0.3;
+        }
+        .comment-content {
+            padding-top: 5px;
+        }
+    }
+}

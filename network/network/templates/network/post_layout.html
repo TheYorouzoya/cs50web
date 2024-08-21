@@ -1,0 +1,47 @@
+<div id="posts_container">
+    {% for post in page_obj.object_list %}
+    <div class="post" data-id="{{ post.id }}">
+        <div class="post-header">
+            <div class="author">
+                <a href="/user/{{ post.author }}">{{ post.author }}</a>
+            </div>
+            <div class="timestamp">
+                {{ post.creation_date }}
+            </div>
+        </div>
+        <div class="content">
+            <div class="post-text">
+                {{ post.content }}
+            </div>
+        </div>
+        <div class="post-footer">
+            <div class="likes">
+                {% if post.is_liked %}
+                    <span class="like-btn bi-heart-fill"></span> <span class="like-counter">{{ post.likes }}</span>
+                {% else %}
+                    <span class="like-btn bi-heart"></span> <span class="like-counter">{{ post.likes }}</span>
+                {% endif %}
+            </div>
+            <div class="comments">
+                <a href="{% url 'post' post.id %}"><span class="bi-chat-right-text"></span> {{ post.comments }}</a>
+            </div>
+            {% if user.is_authenticated %}
+            {% if request.user.username == post.author.username %}
+            <div class="edit-btn">
+                <span class="bi-pencil"></span> Edit
+            </div>
+            {% endif %}
+            {% endif %}
+        </div>
+    </div>
+    <hr>
+    {% endfor %}
+    <div id="page-buttons">
+        {% if page_obj.has_previous %}
+        <a href="?page={{ page_obj.previous_page_number }}" type="button" class="btn btn-primary btn-sm">Previous Page</a>
+        {% endif %}
+        {% if page_obj.has_next %}
+        <a href="?page={{ page_obj.next_page_number }}" type="button" class="btn btn-primary btn-sm">Next Page</a>
+        {% endif %}
+    </div>
+</div>
